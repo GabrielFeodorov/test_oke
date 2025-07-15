@@ -2,8 +2,13 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl
 
 terraform {
-  required_version = ">= 1.3.0"
-
+  required_version = ">= 1.12.0"
+  backend "oci" {
+    bucket    = "tfstate2"
+    namespace = "idjuatm1d4mr"   #Update Object storage namespace
+    region    = "eu-frankfurt-1" #Update youre region
+    auth      = "InstancePrincipal"
+  }
   required_providers {
     cloudinit = {
       source  = "hashicorp/cloudinit"
