@@ -6,8 +6,8 @@ on:
   pull_request:
 
 env:
-  TF_VAR_tenancy_id: ${{ secrets.TENANCY_OCID }}
-  TF_VAR_compartment_id: ${{ secrets.COMPARTMENT_OCID }}
+  TF_VAR_tenancy_id: ${{ secrets.TENANCY_IDN}}
+  TF_VAR_compartment_id: ${{ secrets.COMPARTMENT_ID }}
   TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
   TF_VAR_ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -19,7 +19,7 @@ jobs:
   terraform:
     name: "Terraform"
     runs-on: self-hosted
-    environment: ocitest # Update the name of the environment
+    environment: test_oke # Update the name of the environment
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
